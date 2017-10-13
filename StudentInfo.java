@@ -1,46 +1,41 @@
-public class StudentInfo
-{
-    private int studentNumber;
-    private String firstName;
-    private String lastName;
-    private StudentInfo next;
 
-    public StudentInfo(int studentNumber, String firstName, String lastName) {
-	this.studentNumber = studentNumber;
-	this.firstName = firstName;
-	this.lastName = lastName;
-    }
+public class StudentInfo {
+	
+	private StudentInfo left;
+	private StudentInfo right;
+	private int number ;  
+	private String firstname;
+	private String lastname;
+	
+	public StudentInfo (int N, String FN, String LN){
+		number = N;
+		firstname = FN;
+		lastname = LN;
+	}
+	
+	public StudentInfo getLeft () {
+		return left;
+	}
+	
+	public void setLeft (StudentInfo fd) {
+		left = fd;
+	}
+	
+	public StudentInfo getRight () {
+		return right;
+	}
+	
+	public void setRight (StudentInfo fd) {
+		right = fd;
+	}
+	
+	public int getNumber () {
+		return number;
+	}
+	
+	public void setNumber (int numb) {
+		number = numb;
+	}
+	
 
-    public int getStudentNumber() {
-	return studentNumber;
-    }
-
-    public String getFirstName() {
-	return firstName;
-    }
-
-    public String getLastName() {
-	return lastName;
-    }
-
-    public StudentInfo getNext() {
-	return next;
-    }
-
-    public void setStudentNumber(int studentNumber) {
-	this.studentNumber = studentNumber;
-    }
-
-    public void setFirstName(String firstName) {
-	this.firstName = firstName;
-    }
-
-    public void setLastName(String lastName) {
-	this.lastName = lastName;
-    }
-
-    public void setNext(StudentInfo next) {
-	this.next = next;
-    }
-    
 }
