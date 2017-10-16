@@ -1,4 +1,3 @@
-
 public class StudentInfo {
 	
 	private StudentInfo left;
@@ -11,6 +10,8 @@ public class StudentInfo {
 		number = N;
 		firstname = FN;
 		lastname = LN;
+		left = null;
+		right = null;
 	}
 	
 	public StudentInfo getLeft () {
