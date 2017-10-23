@@ -1,4 +1,5 @@
-public class BinaryTreeTest
+
+public class BinaryTreeTest  //cla
 {
     public static void main (String[] args)
     {
@@ -32,7 +33,17 @@ public class BinaryTreeTest
 	student = new StudentInfo (12, "Miss", "Prissy");
 	binarytree.AddToTree (student, binarytree.getRoot ());
 	
+       // System.out.println("Post Order: " + binarytree.PostOrder(binarytree.getRoot() )) ;
+	System.out.println("Post Order: ");
 	binarytree.PostOrder(binarytree.getRoot() );
+	System.out.println(" ");
+	
+	System.out.println("Pre Order: ");
+	binarytree.PreOrder(binarytree.getRoot() );
+	System.out.println(" ");
+
+	System.out.println("In Order: ");
+	binarytree.InOrder(binarytree.getRoot() );
 
 
     }

@@ -1,46 +1,47 @@
-public class MyBinaryTree
+public class MyBinaryTree //binary tree class
 {
 
-    private int ListPositionNumber;
+    private int ListPositionNumber; //attributes
     public StudentInfo root;
 
-    public void AddToTree (StudentInfo itemtoadd, StudentInfo current)
+    public void AddToTree (StudentInfo itemtoadd, StudentInfo current) //method for adding an item to the tree
     { //adds information to tree
-	if (ListPositionNumber == 0)
+	if (ListPositionNumber == 0) //if there is no item in the binary tree
 	{
 	    root = itemtoadd;  // makes the first item (the root) the item to add
-	    ListPositionNumber++;
+	    ListPositionNumber++; //increases the total number of items by one
 	}
 
 	else
 	{
 
-	    if (itemtoadd.getNumber () < current.getNumber ())
+	    if (itemtoadd.getNumber () < current.getNumber ()) //if the student number of the current item is smaller than the current item on the list
 	    {
-		current = current.getLeft ();
-		if (current == null)
+		
+		if (current.getLeft() == null) //checks to see if the left item is null
 		{
-		    current.setLeft (itemtoadd);
-		    ListPositionNumber++;
+			current.setLeft (itemtoadd);//sets left item to the item to add
+			ListPositionNumber++; //increases total number of items by one
 		}
+		
 		else
 		{
-		    AddToTree (itemtoadd, current);
+			AddToTree (itemtoadd, current.getLeft()); //if there is an item on left, that item is put back into the method and the recursion happens
 		}
 
 	    }
 
-	    else if (itemtoadd.getNumber () > current.getNumber ())
+	    else if (itemtoadd.getNumber () > current.getNumber ()) //if the student number of the object is higher than the current item
 	    {
-		current = current.getRight ();
-		if (current == null)
+		
+		if (current.getRight () == null) //checks to see if the right object is null
 		{
-		    current.setRight (itemtoadd);
-		    ListPositionNumber++;
+			current.setRight (itemtoadd); //sets the right object to the item to be added
+			ListPositionNumber++; //increases total number in binary tree by 1
 		}
 		else
 		{
-		    AddToTree (itemtoadd, current);
+			AddToTree (itemtoadd, current.getRight() ); //if the right attribute is not empty, that item is put back into the method and the recursion happens
 		}
 	    }
 
@@ -48,54 +49,54 @@ public class MyBinaryTree
     }
 
 
-    public void InOrder (StudentInfo Node)
+    public void InOrder (StudentInfo Node) //InOrder Traversal method
     {
-	if (Node != null)
+	if (Node != null) //makes sure that the node is not empty
 	{
-	    InOrder (Node.getLeft ());
-	    System.out.print (Node.getNumber () + ", ");
-	    InOrder (Node.getRight ());
+	    InOrder (Node.getLeft ()); //puts the left item back into the in order method
+	    System.out.print (Node.getNumber () + ", "); //prints the item when its left is null, indicating it is at the end of the tree
+	    InOrder (Node.getRight ()); // goes to the right attribute and puts that into the In Order method
 	}
     }
 
 
-    public void PreOrder (StudentInfo Node)
+    public void PreOrder (StudentInfo Node) //PreOrder Traversal method
     {
-	if (Node != null)
+	if (Node != null) //makes sure that the node is not empty
 	{
-	    System.out.print (Node.getNumber () + ", ");
-	    PreOrder (Node.getLeft ());
-	    PreOrder (Node.getRight ());
+	    System.out.print (Node.getNumber () + ", "); //outputs the current item on the list
+	    PreOrder (Node.getLeft ());  //puts the left attribute into the pre order method
+	    PreOrder (Node.getRight ()); // puts the right attribute into the pre order method
 	}
     }
 
 
-    public void PostOrder (StudentInfo Node)
+    public void PostOrder (StudentInfo Node)//PostOrder Traversal method
     {
-	if (Node != null)
+	if (Node != null) //makes sure that the node is not empty
 	{
-	    PostOrder (Node.getLeft ());
-	    PostOrder (Node.getRight ());
+	    PostOrder (Node.getLeft ());  //puts the left attribute into the post order method
+	    PostOrder (Node.getRight ()); //puts the right attribute into the post order method
 	    System.out.print (Node.getNumber () + ", ");
 	}
     }
     
-    public StudentInfo getRoot ()
+    public StudentInfo getRoot () //method for getting the root of the binary tree
     {
 	return root; 
     }
     
-    public void setRoot (StudentInfo r) 
+    public void setRoot (StudentInfo r) //method for setting the root of the binary tree
     {
 	root = r;
     }
     
-    public int getNumberInList ()
+    public int getNumberInList () //method for getting the total number of items in the list
     {
 	return ListPositionNumber; 
     }
     
-    public void setNumberInList (int a)
+    public void setNumberInList (int a) //method for setting the total number of items in the list to a certain number
     {
 	ListPositionNumber = a;
     }
